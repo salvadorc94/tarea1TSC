@@ -1,4 +1,5 @@
 #include <vector>
+#include "stdlib.h"
 #include "math.h"
 using namespace std;
 
@@ -71,6 +72,7 @@ Matrix sumMatrix(Matrix A, Matrix B, int n, int m){
             R.at(i).at(j) = A.at(i).at(j) + B.at(i).at(j);
         }
     }
+    return R;
 }
 
 //Función para transponer la matriz
