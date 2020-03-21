@@ -7,13 +7,9 @@ int main(void){
     Matrix matriz_inversa;
     zeroes(matriz,3);
 
-    //matriz.at(0).at(0) = 2; matriz.at(0).at(1) = 2; matriz.at(0).at(2) = 3;
-    //matriz.at(1).at(0) = 4; matriz.at(1).at(1) = 5; matriz.at(1).at(2) = 6;
-    //matriz.at(2).at(0) = 7; matriz.at(2).at(1) = 8; matriz.at(2).at(2) = 9;
-
-    matriz.at(0).at(0) = 0; matriz.at(0).at(1) = 0; matriz.at(0).at(2) = 0;
-    matriz.at(1).at(0) = 0; matriz.at(1).at(1) = 0; matriz.at(1).at(2) = 0;
-    matriz.at(2).at(0) = 0; matriz.at(2).at(1) = 0; matriz.at(2).at(2) = 0;
+    matriz.at(0).at(0) = 2; matriz.at(0).at(1) = 2; matriz.at(0).at(2) = 3;
+    matriz.at(1).at(0) = 4; matriz.at(1).at(1) = 5; matriz.at(1).at(2) = 6;
+    matriz.at(2).at(0) = 7; matriz.at(2).at(1) = 8; matriz.at(2).at(2) = 9;
 
     inversaMatriz(matriz,matriz_inversa);
 
