@@ -109,3 +109,43 @@ float determinante(Matrix M){
         return det;
     }
 }
+
+//La funcion recibe saca el cofactor de una matriz.
+//La funcion recibe: Una matriz y la matriz que contendra los cofactores de la primera.
+
+void cofactors(Matrix M, Matrix &Cof){
+    //Se prepara la matriz de cofactores para que sea de las mismas
+    //dimensiones de la matriz original
+    zeroes(Cof,M.size());
+    //Se recorre la matriz original
+    for(int i=0;i<M.size();i++){
+        for(int j=0;j<M.at(0).size();j++){
+            //Se obtiene el menor de la posicion actual
+            Matrix minor;
+            copyMatrix(M,minor);
+            getMinor(minor,i,j);
+            //Se calcula el cofactor de la posicion actual
+            //      alternante * determinante del menor de la posicion actual
+            Cof.at(i).at(j) = pow(-1,i+j)*determinante(minor);
+        }
+    }
+}
+
+//Función para calcular la inversa de la Matriz
+void inversaMatriz(Matrix M, Matrix &I){
+    if(determinante(M) == 0.0){
+        exit(EXIT_FAILURE);
+    }else{
+        Matrix cofactores;
+        //Matriz de cofactores
+        cofactors(M,cofactores);
+        Matrix transpuesta_cofactores;
+        transpose(cofactores, transpuesta_cofactores);
+        
+        Matrix inversa;
+        float escalar = 1/determinante(M);
+        productoRealMatrix(escalar, transpuesta_cofactores, inversa);
+
+        copyMatrix(inversa,I);
+    }
+}
